@@ -52,7 +52,14 @@ class _PopularMovieState extends State<PopularMovie> {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   ListTile(
-                    leading: const Icon(Icons.movie, size: 30),
+                    leading: popMovs[index].url.isNotEmpty
+                        ? Image.network(
+                            popMovs[index].url,
+                            width: 50,
+                            height: 50,
+                            fit: BoxFit.cover,
+                          )
+                        : const Icon(Icons.movie, size: 50),
                     title: Text(popMovs[index].title),
                     subtitle: Text(popMovs[index].overview),
                     trailing: Text('Rating: ${popMovs[index].voteAverage}'),
